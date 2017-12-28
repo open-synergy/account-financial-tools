@@ -586,10 +586,11 @@ class account_asset_asset(orm.Model):
                     # fiscal year deviations
                     diff = fy_amount_check - fy_amount
                     fy_residual_amount += diff
-                    if i == 0:  # first year: deviation in first period
-                        lines[0]['amount'] = period_amount - diff
-                    else:       # other years: deviation in last period
-                        lines[-1]['amount'] = period_amount - diff
+                    # if i == 0:  # first year: deviation in first period
+                    #     lines[0]['amount'] = period_amount - diff
+                    # else:       # other years: deviation in last period
+                    #     lines[-1]['amount'] = period_amount - diff
+                    lines[-1]['amount'] = period_amount - diff
             else:
                 raise orm.except_orm(
                     _('Programming Error!'),
